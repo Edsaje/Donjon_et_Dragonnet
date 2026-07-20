@@ -1,53 +1,45 @@
 package fr.campus.donjon_et_dragonnet.Game;
 
-import fr.campus.donjon_et_dragonnet.Character.GameCharacter;
 import java.util.Scanner;
 
 public class Menu {
-    //Attributs
-    private final Scanner scanner = new Scanner(System.in);
+    // 1. Attributs
+    // Le Scanner devient un attribut de la classe ! Comme ça on peut l'utiliser partout.
+    private Scanner keyboard;
 
-    //Constructeur
-    public Menu () {
+    // 2. Constructeur
+    public Menu() {
+        // On initialise le scanner quand on crée le menu
+        this.keyboard = new Scanner(System.in);
     }
 
-    //Méthode publique
-    /*public GameCharacter creationCharacter() {
+    // 3. La méthode start() (appelée par le Main)
+    public void start() {
+        int choixMenu = 0;
+        System.out.println("🏰 Bienvenue dans Donjons & Dragonnets ! 🏰");
 
-        System.out.println("Bienvenue dans DONJON ET DRAGONNET");
+        while (choixMenu != 2) {
+            System.out.println("\n--- MENU PRINCIPAL ---");
+            System.out.println("1. Créer un personnage");
+            System.out.println("2. Quitter le jeu");
+            System.out.println("Faites votre choix : ");
 
-        GameCharacter.CharacterType type = chooseClass();
+            choixMenu = this.keyboard.nextInt();
 
-        System.out.println("Veuillez choisir un nom :");
-        String name = scanner.nextLine();
-
-        GameCharacter player = switch (type) {
-            case GUERRIER -> new GameCharacter(
-                    GameCharacter.CharacterType.GUERRIER, name, 10, 5, "sword"
-            );
-            case MAGE -> new GameCharacter(
-                    GameCharacter.CharacterType.MAGE, name, 6, 8, "staff"
-            );
-        };
-
-        return player;
-    }*/
-
-    public int askPlayerInt(String message) {
-        System.out.println(message);
-        return scanner.nextInt();
+            if (choixMenu == 1) {
+                createCharacter(); // On appelle une méthode pour garder le code lisible
+            }
+            else if (choixMenu == 2) {
+                System.out.println("Au revoir et à bientôt !");
+            }
+        }
     }
 
-    //Méthode privée
-
-
-    //toString
-
-    @Override
-    public String toString() {
-        return "Menu{" +
-                "scanner=" + scanner +
-                '}';
+    // 4. La méthode pour créer le personnage (qu'on a appelé juste au-dessus)
+    private void createCharacter() {
+        System.out.print("Quel est ton nom de héro ? : ");
+        String playerName = this.keyboard.next();
+        System.out.print("Quel est ta classe ? : ");
+        System.out.print("1. Guerrier\n 2. Mage ");
     }
 }
-
