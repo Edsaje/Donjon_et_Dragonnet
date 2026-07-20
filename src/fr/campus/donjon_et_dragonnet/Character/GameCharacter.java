@@ -1,15 +1,19 @@
 package fr.campus.donjon_et_dragonnet.Character;
 
-public class Character {
+public class GameCharacter {
     //Attributs
-    private String type;
+    private CharacterType type;
     private String name;
     private int health;
     private int attackLevel;
     private String offensiveEquipment;
+    public enum CharacterType {
+        GUERRIER,
+        MAGE
+    }
 
     //Constructeur
-    public Character(String type, String name, int health, int attackLevel, String offensiveEquipment) {
+    public GameCharacter(CharacterType type, String name, int health, int attackLevel, String offensiveEquipment) {
         this.type = type;
         this.name = name;
         this.health = health;
@@ -18,7 +22,7 @@ public class Character {
     }
 
     //Getter
-    public String getType() {
+    public CharacterType getType() {
         return type;
     }
 
@@ -40,7 +44,7 @@ public class Character {
 
     //Setter
 
-    public void setType(String type) {
+    public void setType(CharacterType type) {
         this.type = type;
     }
 

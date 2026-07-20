@@ -1,15 +1,15 @@
 package fr.campus.donjon_et_dragonnet.Item;
 
-public class OffensiveEquipment {
+public class DefensiveEquipment {
     //Attributs
     private String type;
-    private int attackLevel;
+    private int defenseLevel;
     private String name;
 
     //Constructeur
-    public OffensiveEquipment (String type, int attackLevel, String name) {
+    public DefensiveEquipment(String type, int defenseLevel, String name) {
         this.type = type;
-        this.attackLevel = attackLevel;
+        this.defenseLevel = defenseLevel;
         this.name = name;
     }
 
@@ -17,9 +17,11 @@ public class OffensiveEquipment {
     public String getType() {
         return type;
     }
-    public int getAttackLevel() {
-        return attackLevel;
+
+    public int getDefenseLevel() {
+        return defenseLevel;
     }
+
     public String getName() {
         return name;
     }
@@ -29,8 +31,8 @@ public class OffensiveEquipment {
         this.type = type;
     }
 
-    public void setAttackLevel(int attackLevel) {
-        this.attackLevel = attackLevel;
+    public void setDefenseLevel(int defenseLevel) {
+        this.defenseLevel = defenseLevel;
     }
 
     public void setName(String name) {
@@ -40,6 +42,6 @@ public class OffensiveEquipment {
     //toString
     @Override
     public String toString(){
-        return "L'objet " + name + " est un(e) " + type + " avec une attaque de " + attackLevel + " points.";
+        return "L'objet " + name + " est un(e) " + type + " avec une defense de " + defenseLevel + " points.";
     }
 }
