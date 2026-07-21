@@ -2,46 +2,47 @@ package fr.campus.donjon_et_dragonnet.Item;
 
 public class DefensiveEquipment {
     //Attributs
-    private String type;
-    private int defenseLevel;
-    private String name;
+    protected String type;
+    protected String name;
+    protected int defenseLevel;
 
     //Constructeur
-    public DefensiveEquipment(String type, int defenseLevel, String name) {
+    public DefensiveEquipment(String type, String name, int defenseLevel) {
         this.type = type;
-        this.defenseLevel = defenseLevel;
         this.name = name;
+        this.defenseLevel = defenseLevel;
     }
 
-    //Getter
     public String getType() {
         return type;
     }
 
-    public int getDefenseLevel() {
-        return defenseLevel;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getName() {
         return name;
     }
 
-    //Setter
-    public void setType(String type) {
-        this.type = type;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getDefenseLevel() {
+        return defenseLevel;
     }
 
     public void setDefenseLevel(int defenseLevel) {
         this.defenseLevel = defenseLevel;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    //toString
     @Override
-    public String toString(){
-        return "L'objet " + name + " est un(e) " + type + " avec une defense de " + defenseLevel + " points.";
+    public String toString() {
+        return "DefensiveEquipment{" +
+                "type='" + type + '\'' +
+                ", name='" + name + '\'' +
+                ", defenseLevel=" + defenseLevel +
+                '}';
     }
 }

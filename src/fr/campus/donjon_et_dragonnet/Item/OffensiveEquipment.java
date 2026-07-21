@@ -1,45 +1,46 @@
 package fr.campus.donjon_et_dragonnet.Item;
 
 public class OffensiveEquipment {
-    //Attributs
     private String type;
-    private int attackLevel;
     private String name;
+    private int attackLevel;
 
-    //Constructeur
-    public OffensiveEquipment (String type, int attackLevel, String name) {
+    public OffensiveEquipment(String type, String name, int attackLevel) {
         this.type = type;
-        this.attackLevel = attackLevel;
         this.name = name;
+        this.attackLevel = attackLevel;
     }
 
-    //Getter
     public String getType() {
         return type;
     }
-    public int getAttackLevel() {
-        return attackLevel;
-    }
-    public String getName() {
-        return name;
-    }
 
-    //Setter
     public void setType(String type) {
         this.type = type;
     }
 
-    public void setAttackLevel(int attackLevel) {
-        this.attackLevel = attackLevel;
+    public String getName() {
+        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    //toString
+    public int getAttackLevel() {
+        return attackLevel;
+    }
+
+    public void setAttackLevel(int attackLevel) {
+        this.attackLevel = attackLevel;
+    }
+
     @Override
-    public String toString(){
-        return "L'objet " + name + " est un(e) " + type + " avec une attaque de " + attackLevel + " points.";
+    public String toString() {
+        return "OffensiveEquipment{" +
+                "type='" + type + '\'' +
+                ", name='" + name + '\'' +
+                ", attackLevel=" + attackLevel +
+                '}';
     }
 }
