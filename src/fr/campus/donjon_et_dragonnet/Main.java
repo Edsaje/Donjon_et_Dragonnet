@@ -1,17 +1,11 @@
-import fr.campus.donjon_et_dragonnet.Game.Menu;
+package fr.campus.donjon_et_dragonnet;
+
 import fr.campus.donjon_et_dragonnet.Game.Game;
-import fr.campus.donjon_et_dragonnet.Entity.Character;
 
-void main() {
-    // 1. On récupère notre menu
-    Menu menu = Menu.getInstance();
+class Main {
+    public static void main(String[] args) {
 
-    // 2. On lance la création ET ON ATTRAPE LE RÉSULTAT dans une variable
-    Character player1 = menu.characterCreation();
-
-    // 3. On crée la partie en lui donnant le héros qu'on vient de fabriquer
-    Game game = new Game(player1);
-
-    // 4. On lance la boucle de dés !
-    game.play();
+        Game game = Game.getInstance();
+        game.startGame();
+    }
 }
