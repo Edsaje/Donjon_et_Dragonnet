@@ -3,13 +3,13 @@ package fr.campus.donjon_et_dragonnet.Game;
 import fr.campus.donjon_et_dragonnet.Entity.Character;
 import fr.campus.donjon_et_dragonnet.Entity.Warrior;
 import fr.campus.donjon_et_dragonnet.Entity.Wizard;
+import fr.campus.donjon_et_dragonnet.Item.Potion;
 
 import java.util.Scanner;
 
 public class Game {
 
     private static final Game INSTANCE = new Game();
-
     private Game() {
 
     }
@@ -26,6 +26,7 @@ public class Game {
     private final Dice DICE = new Dice();
     private Character player1;
     private Menu menu = Menu.getInstance(); //on récupère notre Menu
+    private Board board;
 
     public Game(Character player) {
         this.player = player;
@@ -45,6 +46,9 @@ public class Game {
 
         //Petit message d'annonce
         menu.displayMessage("\n" + player1.getName() + " entre dans le donjon. Bonne Chance !");
+
+        //init plateau
+        this.board = new Board();
 
         //On lance la boucle de dés !
         this.play();
@@ -73,6 +77,7 @@ public class Game {
         if (menu.askPlayerInt("\nCe personnage te convient ?\n1. Oui\n2. Non") != 1){
             characterCreation();
         }
+
         return tmp;
     }
 
@@ -85,7 +90,14 @@ public class Game {
             if (currentCell > 64){
                 currentCell = 64;
             }
+            Cell cell = board.getCell(currentCell);
             menu.displayMessage("Vous avez fait " + diceValue + " ! Vous avancez donc jusqu'à la case " + currentCell + ".");
+            if (cell.getContent() instanceof Character) {
+
+            } else if (cell.getContent() instanceof Potion) {
+
+            }
+
         }
         menu.displayMessage("\nVictoire pour le peuple !");
         endGame();
