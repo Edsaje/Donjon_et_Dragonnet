@@ -1,9 +1,5 @@
 package fr.campus.donjon_et_dragonnet.Game;
 
-import fr.campus.donjon_et_dragonnet.Entity.Character;
-import fr.campus.donjon_et_dragonnet.Entity.Warrior;
-import fr.campus.donjon_et_dragonnet.Entity.Wizard;
-
 import java.util.Scanner;
 
 public class Menu {

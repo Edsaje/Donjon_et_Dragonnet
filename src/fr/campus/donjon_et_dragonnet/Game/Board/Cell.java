@@ -1,7 +1,5 @@
-package fr.campus.donjon_et_dragonnet.Game;
+package fr.campus.donjon_et_dragonnet.Game.Board;
 
-
-import java.util.ArrayList;
 
 public class Cell {
     //attributs
@@ -10,7 +8,7 @@ public class Cell {
 
     //constructeur case vide
     public Cell(){
-        this.name = "Case vide";
+        this.name = "Rien à signaler ! Tu peux continuer d'avancer";
         this.content = null;
     }
 

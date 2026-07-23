@@ -1,9 +1,12 @@
 package fr.campus.donjon_et_dragonnet.Game;
 
-import fr.campus.donjon_et_dragonnet.Entity.Character;
-import fr.campus.donjon_et_dragonnet.Entity.Warrior;
-import fr.campus.donjon_et_dragonnet.Entity.Wizard;
-import fr.campus.donjon_et_dragonnet.Item.Potion;
+import fr.campus.donjon_et_dragonnet.Game.Board.Board;
+import fr.campus.donjon_et_dragonnet.Game.Board.Cell;
+import fr.campus.donjon_et_dragonnet.Game.Board.Dice;
+import fr.campus.donjon_et_dragonnet.entity.Character;
+import fr.campus.donjon_et_dragonnet.entity.player_class.Warrior;
+import fr.campus.donjon_et_dragonnet.entity.player_class.Wizard;
+import fr.campus.donjon_et_dragonnet.equipment.item.Potion;
 
 import java.util.Scanner;
 
@@ -42,10 +45,10 @@ public class Game {
         menu.intro();
 
         //On lance la création ET ON ATTRAPE LE RÉSULTAT dans une variable
-        player1 = characterCreation();
+        player = characterCreation();
 
         //Petit message d'annonce
-        menu.displayMessage("\n" + player1.getName() + " entre dans le donjon. Bonne Chance !");
+        menu.displayMessage("\n" + player.getName() + " entre dans le donjon. Bonne Chance !");
 
         //init plateau
         this.board = new Board();
@@ -56,17 +59,17 @@ public class Game {
 
     public Character characterCreation() {
         String playerName = menu.askPlayerName("\nDit moi quel est ton nom jeune héro ? : ");
-        Character tmp = null;
+        Character playerChoice = null;
         int playerInt = menu.askPlayerInt("\n" + playerName + " ? Un nom interessant ! Maintenant, choisis ta classe ! : \n 1.Guerrier\n 2.Mage");
 
         if (playerInt == 1) {
-            tmp = new Warrior(playerName);
-            System.out.println("\n" + tmp);
+            playerChoice = new Warrior(playerName);
+            System.out.println("\n" + playerChoice);
         }
 
         else if (playerInt == 2) {
-            tmp = new Wizard(playerName);
-            System.out.println("\n" + tmp);
+            playerChoice = new Wizard(playerName);
+            System.out.println("\n" + playerChoice);
 
         }
         else {
@@ -75,10 +78,10 @@ public class Game {
         }
 
         if (menu.askPlayerInt("\nCe personnage te convient ?\n1. Oui\n2. Non") != 1){
-            characterCreation();
+            return characterCreation();
         }
 
-        return tmp;
+        return playerChoice;
     }
 
     public void play(){
@@ -90,8 +93,11 @@ public class Game {
             if (currentCell > 64){
                 currentCell = 64;
             }
+
             Cell cell = board.getCell(currentCell);
             menu.displayMessage("Vous avez fait " + diceValue + " ! Vous avancez donc jusqu'à la case " + currentCell + ".");
+            menu.displayMessage(cell.getName());
+
             if (cell.getContent() instanceof Character) {
 
             } else if (cell.getContent() instanceof Potion) {
@@ -109,6 +115,9 @@ public class Game {
         if (menu.askPlayerInt("\nVoulez vous rejouer ? :\n1. Oui\n2. Non") != 1){
             return;
         }
+        currentCell = 0;
         startGame();
     }
+
+
 }

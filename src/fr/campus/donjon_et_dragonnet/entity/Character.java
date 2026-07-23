@@ -1,7 +1,7 @@
-package fr.campus.donjon_et_dragonnet.Entity;
+package fr.campus.donjon_et_dragonnet.entity;
 
-import fr.campus.donjon_et_dragonnet.Item.DefensiveEquipment;
-import fr.campus.donjon_et_dragonnet.Item.OffensiveEquipment;
+import fr.campus.donjon_et_dragonnet.equipment.DefensiveEquipment;
+import fr.campus.donjon_et_dragonnet.equipment.OffensiveEquipment;
 
 public class Character {
     // 1. Les attributs (en 'protected' pour que les enfants puissent les voir)
@@ -41,6 +41,22 @@ public class Character {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public DefensiveEquipment getDefensiveEquipment() {
+        return defensiveEquipment;
+    }
+
+    public void setDefensiveEquipment(DefensiveEquipment defensiveEquipment) {
+        this.defensiveEquipment = defensiveEquipment;
     }
 
     public OffensiveEquipment getOffensiveEquipment() {

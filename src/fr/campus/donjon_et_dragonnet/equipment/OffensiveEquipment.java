@@ -1,4 +1,4 @@
-package fr.campus.donjon_et_dragonnet.Item;
+package fr.campus.donjon_et_dragonnet.equipment;
 
 public class OffensiveEquipment {
     private String type;

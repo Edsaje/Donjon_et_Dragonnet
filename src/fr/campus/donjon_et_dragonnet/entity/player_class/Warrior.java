@@ -1,7 +1,8 @@
-package fr.campus.donjon_et_dragonnet.Entity;
+package fr.campus.donjon_et_dragonnet.entity.player_class;
 
-import fr.campus.donjon_et_dragonnet.Item.DefensiveEquipment;
-import fr.campus.donjon_et_dragonnet.Item.OffensiveEquipment;
+import fr.campus.donjon_et_dragonnet.equipment.DefensiveEquipment;
+import fr.campus.donjon_et_dragonnet.equipment.OffensiveEquipment;
+import fr.campus.donjon_et_dragonnet.entity.Character;
 
 public class Warrior extends Character {
 

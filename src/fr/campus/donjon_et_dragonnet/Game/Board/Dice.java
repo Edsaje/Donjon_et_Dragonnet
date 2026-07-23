@@ -1,4 +1,4 @@
-package fr.campus.donjon_et_dragonnet.Game;
+package fr.campus.donjon_et_dragonnet.Game.Board;
 import java.util.Random;
 
 public class Dice {
